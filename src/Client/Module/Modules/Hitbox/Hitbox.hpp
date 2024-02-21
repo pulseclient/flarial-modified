@@ -8,7 +8,7 @@ class Hitbox : public Module {
 
 public:
 
-    Hitbox() : Module("Hitbox", "Displays hitboxes of entities", "\\Flarial\\assets\\block.png", 'C') {
+    Hitbox() : Module("Hitbox", "Displays hitboxes of entities\nthrought blocks", "\\Flarial\\assets\\block.png", 'C') {
 
         onEnable();
 
@@ -28,6 +28,7 @@ public:
     virtual void DefaultConfig() override {
         if (settings.getSettingByName<std::string>("color") == nullptr) settings.addSetting("color", (std::string)"FFFFFF");
         if (settings.getSettingByName<bool>("color_rgb") == nullptr) settings.addSetting("color_rgb", false);
+        if (settings.getSettingByName<bool>("ents") == nullptr) settings.addSetting("ents", false);
         if (settings.getSettingByName<float>("colorOpacity") == nullptr) settings.addSetting("colorOpacity", 0.6f);
 
     }

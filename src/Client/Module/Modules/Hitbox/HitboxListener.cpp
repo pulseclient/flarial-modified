@@ -13,7 +13,8 @@ void renderBox(Player* player) {
     float dist = localPlayer->getPosition()->dist(*player->getPosition());
     if(player == nullptr) return;
 	// This may let through some entites
-	if (player == localPlayer || !player || !player->isAlive() || !localPlayer->isValidTarget(player) || !HitboxListener::canSeeArrXD[player->getNametag()] || dist > 30)
+	//|| !HitboxListener::canSeeArrXD[player->getNametag()] 
+	if (player == localPlayer || !player || !player->isAlive() || !localPlayer->isValidTarget(player) || dist > 30)
 		return;
 
     DrawUtils::addEntityBox(player, (float)fmax(0.5f, 1 / (float)fmax(1, localPlayer->getRenderPositionComponent()->renderPos.dist(player->getRenderPositionComponent()->renderPos))), color2);}
@@ -29,7 +30,8 @@ void HitboxListener::onRender(RenderEvent& event) {
 
     if(player != nullptr) {
         for (const auto& ent: player->level->getRuntimeActorList()) {
-            if (ent != nullptr && ent->isPlayer() && ent->hasCategory(ActorCategory::Player))
+            if (ent != nullptr)
+				// && ent->isPlayer() && ent->hasCategory(ActorCategory::Player) checkt nach player glaub
                 renderBox((Player*)ent);
         }
     }
