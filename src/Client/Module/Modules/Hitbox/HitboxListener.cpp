@@ -13,7 +13,7 @@ void renderBox(Player* player) {
     float dist = localPlayer->getPosition()->dist(*player->getPosition());
     if(player == nullptr) return;
 	// This may let through some entites
-	//|| !HitboxListener::canSeeArrXD[player->getNameta()] 
+	//|| !HitboxListener::canSeeArrXD[player->getNametag()] 
 	if (player == localPlayer || !player || !player->isAlive() || !localPlayer->isValidTarget(player) || dist > 30)
 		return;
 
