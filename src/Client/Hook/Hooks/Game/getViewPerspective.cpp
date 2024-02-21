@@ -59,12 +59,14 @@ int getViewPerspectiveHook::callback(uintptr_t* a1) {
 	auto mod = ModuleManager::getModule("SnapLook");
 	auto freemod = ModuleManager::getModule("FreeLook");
 
-	/* des checkt eif nach hive und macht dann halt aus
+	/* shit checks
 	
 	
 	if (freemod != nullptr) {
 
-			if (freemod->settings.getSettingByName<bool>("enabled")->value && RaknetTickHook::towriteip.find("hive") != std::string::npos) {
+
+		if (freemod->settings.getSettingByName<bool>("enabled")->value) {
+			//find shit in ip RaknetTickHook::towriteip.find("hive") != std::string::npos 
 			FlarialGUI::Notify("Can't use freelook on " + RaknetTickHook::towriteip);
 			freemod->settings.getSettingByName<bool>("enabled")->value = false;
 		}
