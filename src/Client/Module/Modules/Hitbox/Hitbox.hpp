@@ -39,26 +39,35 @@ public:
 
     void SettingsRender() override {
 
-        float toggleX = Constraints::PercentageConstraint(0.019, "left");
-        float toggleY = Constraints::PercentageConstraint(0.20, "top");
+        
 
 
         float textWidth = Constraints::RelativeConstraint(0.12, "height", true);
         const float textHeight = Constraints::RelativeConstraint(0.029, "height", true);
 
+        float sliderX = Constraints::PercentageConstraint(0.019, "left");
+        float sliderY = Constraints::PercentageConstraint(0.10, "top") ;
+        sliderY += Constraints::SpacingConstraint(0.35, textWidth);
+
         float x = Constraints::PercentageConstraint(0.019, "left");
         float y = Constraints::PercentageConstraint(0.10, "top");
+
+        FlarialGUI::FlarialTextWithFont(sliderX, sliderY, L"Distance: ", textWidth * 6.9f, textHeight,
+            DWRITE_TEXT_ALIGNMENT_LEADING,
+            Constraints::RelativeConstraint(0.12, "height", true),
+            DWRITE_FONT_WEIGHT_NORMAL);
 
         FlarialGUI::FlarialTextWithFont(x, y, FlarialGUI::to_wide("Color").c_str(), textWidth * 6.9f, textHeight,
             DWRITE_TEXT_ALIGNMENT_LEADING, Constraints::SpacingConstraint(1.05, textWidth),
             DWRITE_FONT_WEIGHT_NORMAL);
-        FlarialGUI::ColorPicker(0, x + Constraints::SpacingConstraint(0.95, textWidth), y - Constraints::SpacingConstraint(0.017, textWidth), settings.getSettingByName<std::string>("color")->value, settings.getSettingByName<float>("colorOpacity")->value, settings.getSettingByName<bool>("color_rgb")->value);
 
+        FlarialGUI::ColorPicker(0, x + Constraints::SpacingConstraint(0.95, textWidth), y - Constraints::SpacingConstraint(0.017, textWidth), settings.getSettingByName<std::string>("color")->value, settings.getSettingByName<float>("colorOpacity")->value, settings.getSettingByName<bool>("color_rgb")->value);
         FlarialGUI::ColorPickerWindow(0, settings.getSettingByName<std::string>("color")->value, settings.getSettingByName<float>("colorOpacity")->value, settings.getSettingByName<bool>("color_rgb")->value);
 
-        float percent = FlarialGUI::Slider(1, toggleX + FlarialGUI::SettingsTextWidth("distance "),
-            toggleY, this->settings.getSettingByName<int>("distance")->value, 1000,
-            0, 0);
+        
+
+        float percent = FlarialGUI::Slider(1, sliderX + FlarialGUI::SettingsTextWidth("distance: "),
+            sliderY, this->settings.getSettingByName<int>("distance")->value, 1000, 0, 0);
 
         this->settings.getSettingByName<int>("distance")->value = percent;
 
