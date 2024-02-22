@@ -14,7 +14,7 @@ void renderBox(Player* player) {
     if(player == nullptr) return;
 	// This may let through some entites
 	//|| !HitboxListener::canSeeArrXD[player->getNametag()] 
-	if (player == localPlayer || !player || !player->isAlive() || !localPlayer->isValidTarget(player) || dist > 30)
+	if (player == localPlayer || !player || !player->isAlive() || !localPlayer->isValidTarget(player) || dist > box->settings.getSettingByName<int>("distance")->value)
 		return;
 
     DrawUtils::addEntityBox(player, (float)fmax(0.5f, 1 / (float)fmax(1, localPlayer->getRenderPositionComponent()->renderPos.dist(player->getRenderPositionComponent()->renderPos))), color2);}
