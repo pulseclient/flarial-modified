@@ -30,9 +30,9 @@ void HitboxListener::onRender(RenderEvent& event) {
 
     if(player != nullptr) {
         for (const auto& ent: player->level->getRuntimeActorList()) {
-            if (ent != nullptr)
-				// && ent->isPlayer() && ent->hasCategory(ActorCategory::Player) checkt nach player glaub
-                renderBox((Player*)ent);
+			if (ent != nullptr || ent->hasCategory(ActorCategory::Monster))
+				// && ent->isPlayer() && ent->hasCategory(ActorCategory::Player) checkt nach player
+            renderBox((Player*)ent);
         }
     }
 }

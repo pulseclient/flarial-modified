@@ -31,6 +31,10 @@ public:
         if (settings.getSettingByName<bool>("ents") == nullptr) settings.addSetting("ents", false);
         if (settings.getSettingByName<float>("colorOpacity") == nullptr) settings.addSetting("colorOpacity", 0.6f);
         if (settings.getSettingByName<int>("distance") == nullptr) settings.addSetting("distance", 30);
+        if (settings.getSettingByName<bool>("players") == nullptr) settings.addSetting("players", true);
+        if (settings.getSettingByName<bool>("entise") == nullptr) settings.addSetting("entise", false);
+
+
     }
 
     void onDisable() override {
