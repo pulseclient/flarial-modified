@@ -56,6 +56,7 @@
 #include "Modules/DVD Screen/dvd.hpp"
 #include "Modules/BlockOutline/BlockOutline.hpp"
 #include "Modules/Hitbox/Hitbox.hpp"
+#include "Modules/nohurtcam/hurtcam.hpp"
 #include <algorithm>
 
 bool compareNames( Module*& obj1,  Module*& obj2) {
@@ -118,6 +119,7 @@ void ModuleManager::initialize()
     modules.push_back(new DVD());
     modules.push_back(new BlockOutline());
     modules.push_back(new Hitbox());
+    modules.push_back(new hurtcam());
 
     std::sort(modules.begin(), modules.end(), compareNames);
 

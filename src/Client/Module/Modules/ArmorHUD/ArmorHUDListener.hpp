@@ -105,8 +105,7 @@ public:
 
                 for (int i = 0; i < 4; i++) {
 
-                    if (module->settings.getSettingByName<bool>("vertical")->value) ymodifier += spacing;
-                    else xmodifier += spacing;
+                    xmodifier += spacing;
 
                     if (SDK::clientInstance->getLocalPlayer()->getArmor(i)->getItem() != nullptr) {
 
