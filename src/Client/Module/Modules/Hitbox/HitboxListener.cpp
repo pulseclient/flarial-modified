@@ -42,7 +42,7 @@ void renderBox(Player* player) {
 	auto localPlayer = SDK::clientInstance->getLocalPlayer();
 	float dist = localPlayer->getPosition()->dist(*player->getPosition());
 	if (player == nullptr) return;
-	// This may let through some entites
+	// This may let through some entites (real)
 	//|| !HitboxListener::canSeeArrXD[player->getNametag()] 
 	if (!player || !player->isAlive() || !localPlayer->isValidTarget(player) || dist > box->settings.getSettingByName<int>("distance")->value)
 		return;
