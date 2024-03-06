@@ -28,13 +28,14 @@ public:
     virtual void DefaultConfig() override {
         if (settings.getSettingByName<std::string>("color") == nullptr) settings.addSetting("color", (std::string)"FFFFFF");
         if (settings.getSettingByName<bool>("color_rgb") == nullptr) settings.addSetting("color_rgb", false);
-        if (settings.getSettingByName<bool>("ents") == nullptr) settings.addSetting("ents", false);
         if (settings.getSettingByName<float>("colorOpacity") == nullptr) settings.addSetting("colorOpacity", 0.6f);
+        if (settings.getSettingByName<std::string>("animalcolor") == nullptr) settings.addSetting("animalcolor", (std::string)"5adb58");
+        if (settings.getSettingByName<bool>("animalcolor_rgb") == nullptr) settings.addSetting("animalcolor_rgb", false);
+        if (settings.getSettingByName<float>("animalcolorOpacity") == nullptr) settings.addSetting("animalcolorOpacity", 0.6f);
+        if (settings.getSettingByName<std::string>("monstercolor") == nullptr) settings.addSetting("monstercolor", (std::string)"d6d64b");
+        if (settings.getSettingByName<bool>("monstercolor_rgb") == nullptr) settings.addSetting("monstercolor_rgb", false);
+        if (settings.getSettingByName<float>("monstercolorOpacity") == nullptr) settings.addSetting("monstercolorOpacity", 0.6f);
         if (settings.getSettingByName<int>("distance") == nullptr) settings.addSetting("distance", 30);
-        if (settings.getSettingByName<bool>("players") == nullptr) settings.addSetting("players", true);
-        if (settings.getSettingByName<bool>("entise") == nullptr) settings.addSetting("entise", false);
-
-
     }
 
     void onDisable() override {
@@ -67,6 +68,20 @@ public:
 
         FlarialGUI::ColorPicker(0, x + Constraints::SpacingConstraint(0.95, textWidth), y - Constraints::SpacingConstraint(0.017, textWidth), settings.getSettingByName<std::string>("color")->value, settings.getSettingByName<float>("colorOpacity")->value, settings.getSettingByName<bool>("color_rgb")->value);
         FlarialGUI::ColorPickerWindow(0, settings.getSettingByName<std::string>("color")->value, settings.getSettingByName<float>("colorOpacity")->value, settings.getSettingByName<bool>("color_rgb")->value);
+
+        FlarialGUI::FlarialTextWithFont(x, y, FlarialGUI::to_wide("Animals").c_str(), textWidth * 6.9f, textHeight,
+            DWRITE_TEXT_ALIGNMENT_LEADING, Constraints::SpacingConstraint(2.10, textWidth),
+            DWRITE_FONT_WEIGHT_NORMAL);
+
+        FlarialGUI::ColorPicker(0, x + Constraints::SpacingConstraint(1.90, textWidth), y - Constraints::SpacingConstraint(0.017, textWidth), settings.getSettingByName<std::string>("animalcolor")->value, settings.getSettingByName<float>("animalcolorOpacity")->value, settings.getSettingByName<bool>("animalcolor_rgb")->value);
+        FlarialGUI::ColorPickerWindow(0, settings.getSettingByName<std::string>("animalcolor")->value, settings.getSettingByName<float>("animalcolorOpacity")->value, settings.getSettingByName<bool>("animalcolor_rgb")->value);
+
+        FlarialGUI::FlarialTextWithFont(x, y, FlarialGUI::to_wide("Monsters?").c_str(), textWidth * 6.9f, textHeight,
+            DWRITE_TEXT_ALIGNMENT_LEADING, Constraints::SpacingConstraint(3.15, textWidth),
+            DWRITE_FONT_WEIGHT_NORMAL);
+
+        FlarialGUI::ColorPicker(0, x + Constraints::SpacingConstraint(2.85, textWidth), y - Constraints::SpacingConstraint(0.017, textWidth), settings.getSettingByName<std::string>("monstercolor")->value, settings.getSettingByName<float>("monstercolorOpacity")->value, settings.getSettingByName<bool>("monstercolor_rgb")->value);
+        FlarialGUI::ColorPickerWindow(0, settings.getSettingByName<std::string>("monstercolor")->value, settings.getSettingByName<float>("monstercolorOpacity")->value, settings.getSettingByName<bool>("monstercolor_rgb")->value);
 
         
 
