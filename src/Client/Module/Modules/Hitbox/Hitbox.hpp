@@ -73,15 +73,15 @@ public:
             //DWRITE_TEXT_ALIGNMENT_LEADING, Constraints::SpacingConstraint(2.10, textWidth),
             //DWRITE_FONT_WEIGHT_NORMAL);
 
-        FlarialGUI::ColorPicker(0, x + Constraints::SpacingConstraint(1.90, textWidth), y - Constraints::SpacingConstraint(0.017, textWidth), settings.getSettingByName<std::string>("animalcolor")->value, settings.getSettingByName<float>("animalcolorOpacity")->value, settings.getSettingByName<bool>("animalcolor_rgb")->value);
-        FlarialGUI::ColorPickerWindow(0, settings.getSettingByName<std::string>("animalcolor")->value, settings.getSettingByName<float>("animalcolorOpacity")->value, settings.getSettingByName<bool>("animalcolor_rgb")->value);
+        FlarialGUI::ColorPicker(1, x + Constraints::SpacingConstraint(1.90, textWidth), y - Constraints::SpacingConstraint(0.017, textWidth), settings.getSettingByName<std::string>("animalcolor")->value, settings.getSettingByName<float>("animalcolorOpacity")->value, settings.getSettingByName<bool>("animalcolor_rgb")->value);
+        FlarialGUI::ColorPickerWindow(1, settings.getSettingByName<std::string>("animalcolor")->value, settings.getSettingByName<float>("animalcolorOpacity")->value, settings.getSettingByName<bool>("animalcolor_rgb")->value);
 
         //FlarialGUI::FlarialTextWithFont(x, y, FlarialGUI::to_wide("Monsters?").c_str(), textWidth * 6.9f, textHeight,
             //DWRITE_TEXT_ALIGNMENT_LEADING, Constraints::SpacingConstraint(3.15, textWidth),
             //DWRITE_FONT_WEIGHT_NORMAL);
 
-        FlarialGUI::ColorPicker(0, x + Constraints::SpacingConstraint(2.85, textWidth), y - Constraints::SpacingConstraint(0.017, textWidth), settings.getSettingByName<std::string>("monstercolor")->value, settings.getSettingByName<float>("monstercolorOpacity")->value, settings.getSettingByName<bool>("monstercolor_rgb")->value);
-        FlarialGUI::ColorPickerWindow(0, settings.getSettingByName<std::string>("monstercolor")->value, settings.getSettingByName<float>("monstercolorOpacity")->value, settings.getSettingByName<bool>("monstercolor_rgb")->value);
+        FlarialGUI::ColorPicker(2, x + Constraints::SpacingConstraint(2.85, textWidth), y - Constraints::SpacingConstraint(0.017, textWidth), settings.getSettingByName<std::string>("monstercolor")->value, settings.getSettingByName<float>("monstercolorOpacity")->value, settings.getSettingByName<bool>("monstercolor_rgb")->value);
+        FlarialGUI::ColorPickerWindow(2, settings.getSettingByName<std::string>("monstercolor")->value, settings.getSettingByName<float>("monstercolorOpacity")->value, settings.getSettingByName<bool>("monstercolor_rgb")->value);
 
         
 
